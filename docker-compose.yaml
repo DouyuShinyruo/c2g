@@ -1,0 +1,42 @@
+# docker-compose.yml
+version: '3.1'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=http://backend:8080
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - MICRONAUT_DATASOURCE_URL=jdbc:mysql://db:3306/mydatabase
+      - MICRONAUT_DATASOURCE_USERNAME=user
+      - MICRONAUT_DATASOURCE_PASSWORD=password
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+
