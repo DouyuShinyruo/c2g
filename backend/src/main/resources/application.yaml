@@ -1,8 +1,0 @@
-micronaut:
-  application:
-    name: micronautservice
-  datasource:
-    url: ${MICRONAUT_DATASOURCE_URL:jdbc:mysql://localhost:3306/mydatabase}
-    username: ${MICRONAUT_DATASOURCE_USERNAME:user}
-    password: ${MICRONAUT_DATASOURCE_PASSWORD:password}
-    driverClassName: com.mysql.cj.jdbc.Driver

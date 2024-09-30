@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: c2g
+  jackson:
+    mapper:
+      ACCEPT_CASE_INSENSITIVE_PROPERTIES: true
+server:
+  port: 8080
+
+api:
+  url:
+    baseUrl: "https://github.com"
+    apiBaseUrl: "https://api.github.com"
+    deviceCodePath: "/login/device/code"
+    tokenPath: "/copilot_internal/v2/token"
+    completionsPath: "/chat/completions"
+    embeddingsPath: "/embeddings"
+    accessTokenPath: "/login/oauth/access_token"
+  client:
+    id: "Iv1.b507a08c87ecfe98"
